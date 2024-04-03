@@ -2,13 +2,14 @@ import { OpenAI } from 'openai';
 import { throwIfMissing } from './utils.js';
 
 export default async ({ req, res, log, error }) => {
-  throwIfMissing(process.env, ['OPENAI_API_KEY']);
-
-  const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-  });
-
   try {
+    throwIfMissing(process.env, ['OPENAI_API_KEY']);
+    throwIfMissing(req.body, ['character', 'question']);
+
+    const openai = new OpenAI({
+      apiKey: process.env.OPENAI_API_KEY,
+    });
+
     var prompt = `You are ${req.body.character}.\nRespond to the following question in first-person: ${req.body.question}\n${req.body.additionalPrompt}`
 
     const response = await openai.chat.completions.create({
