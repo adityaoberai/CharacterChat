@@ -25,11 +25,3 @@ export default async ({ req, res, log, error }) => {
     return res.json({ ok: false, error: err.message }, 500);
   }
 };
-
-/*
-{
-  "character": "Bruce Wayne",
-  "question": "Are you Batman",
-  "additionalPrompt": "Ensure that you don't reveal your Batman alter-ego but you can tip-toe around it."
-}
-*/
