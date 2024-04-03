@@ -7,10 +7,10 @@
   "scripts": {
     "format": "prettier --write ."
   },
-  "dependencies": {
-    "openai": "^4.28.0"
-  },
   "devDependencies": {
     "prettier": "^3.0.0"
+  },
+  "dependencies": {
+    "openai": "^4.32.1"
   }
 }
